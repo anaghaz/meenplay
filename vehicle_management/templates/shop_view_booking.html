@@ -1,0 +1,34 @@
+{% include 'shop_header.html' %}
+<center>
+	<h1>Models</h1>
+	<table>
+		<tr>
+			<th>Username</th>
+			<th>Modelname</th>
+			<th>Amount</th>
+			<th>Date</th>
+			<th>Status</th>
+		</tr>
+		{% for row in data['book'] %}
+		<tr>
+			<td>{{ row['firstname'] }}</td>
+			<td>{{ row['modelname'] }}</td>
+			<td>{{ row['amount'] }}</td>
+			<td>{{ row['date'] }}</td>
+			<td>{{ row['status'] }}</td>
+			{% if row['status'] =="pending" %}
+				<td><a href="shop_view_user?booking_id={{ row['booking_id'] }}&user_id={{ row['user_id'] }}">View Details</a></td>
+				<td><a href="?action=accept&booking_id={{ row['booking_id'] }}">Accept</a></td>
+				<td><a href="?action=reject&booking_id={{ row['booking_id'] }}">Reject</a></td>
+			{% endif %}
+			{% if row['status'] =="paid" %}	
+				<td><a href="shop_view_rating?booking_id={{ row['booking_id'] }}">Rating</a></td>
+				<td><a href="shop_view_payment?booking_id={{ row['booking_id'] }}&user_id={{ row['user_id'] }}">Payment</a></td>
+				<td><a href="shop_view_user?booking_id={{ row['booking_id'] }}&user_id={{ row['user_id'] }}" class="btn btn-success">View User</a></td>
+			{% endif %}	
+		</tr>
+		{% endfor %}
+	</table>
+	
+</center>
+{% include 'footer.html' %}

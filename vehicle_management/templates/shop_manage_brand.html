@@ -1,0 +1,30 @@
+{% include 'shop_header.html' %}
+<center>
+<form method="post">
+<table>
+	<tr>
+		<td align="center" colspan="2"><h1>Brand</h1></td>
+	</tr>
+	
+	<tr>
+		<td>Brand Name</td>
+		<td><input type="pass" name="brandname"></td>	
+	</tr>
+	<tr>
+		<td align="center" colspan="2"><input type="submit" name="submit" value="Add"></td>
+	</tr>
+</table>
+<table>
+	<tr>
+		<th>Brand</th>
+	</tr>
+	{% for row in data['brand'] %}
+	<tr>
+		<td>{{ row['brandname'] }}</td>
+		<td><a href="shop_add_car?brand_id={{ row['brand_id'] }}">Add Car</a></td>
+	</tr>
+	{% endfor %}
+</table>
+</form>
+</center>
+{% include 'footer.html' %}

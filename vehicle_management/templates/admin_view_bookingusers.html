@@ -1,0 +1,29 @@
+{% include 'admin_header.html' %}
+<center>
+	<table>
+		<tr>
+			<th>Firstname</th>
+			<th>Lastname</th>
+			<th>Place</th>
+			<th>Phone</th>
+			<th>Email</th>
+			<th>Licensenumber</th>
+			<th>Gender</th>
+			<th>Adharnumber</th>
+		</tr>
+		{% for row in data['user'] %}
+		<tr>
+			<td>{{ row['firstname'] }}</td>
+			<td>{{ row['lastname'] }}</td>
+			<td>{{ row['place'] }}</td>
+			<td>{{ row['phone'] }}</td>
+			<td>{{ row['email'] }}</td>
+			<td>{{ row['licensenumber'] }}</td>
+			<td>{{ row['gender'] }}</td>
+			<td>{{ row['adharnumber'] }}</td>
+			
+		</tr>
+		{% endfor %}
+	</table>
+</center>
+{% include 'footer.html' %}

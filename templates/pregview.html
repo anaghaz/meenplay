@@ -1,0 +1,47 @@
+{% extends 'admin_header.html' %}
+
+{% block content %}
+<div class="jumbotron bg-dark text-center text-white">
+
+  <h3>Player Details</h3>
+</div>
+</div>
+<div class="col-sm-11">
+     <a href="addm"><button type="submit" class="btn btn-link btn-sm btn-block text-left text-dark"><h4><u>Back To Home</u></h4></button></a>
+</div>
+<center>
+
+ <table border="2" align="center">
+                 {% csrf_token %}
+<h4>
+    <tr>
+
+
+        <th><b>&nbsp&nbspName&nbsp&nbsp&nbsp</b></th>
+        <th><b>&nbsp&nbspPhone&nbsp&nbsp&nbsp</b></th>
+        <th><b>&nbsp&nbspPlace&nbsp&nbsp&nbsp</b></th>
+        <th><b>&nbsp&nbspDOB&nbsp&nbsp&nbsp</b></th>
+        <th><b>&nbsp&nbspHeight&nbsp&nbsp&nbsp</b></th>
+        <th><b>&nbsp&nbspWeight&nbsp&nbsp&nbsp</b></th>
+
+
+    </tr>
+    <tr>
+       {% if user %}
+{% for i in user %}
+        <td><b>&nbsp&nbsp{{i.rname}}&nbsp&nbsp&nbsp</b></td>
+       <td><b>&nbsp&nbsp{{i.rphone}}&nbsp&nbsp&nbsp</b></td>
+       <td><b>&nbsp&nbsp{{i.rplace}}&nbsp&nbsp&nbsp</b></td>
+       <td><b>&nbsp&nbsp{{i.rdob}}&nbsp&nbsp&nbsp</b></td>
+       <td><b>&nbsp&nbsp{{i.height}}&nbsp&nbsp&nbsp</b></td>
+       <td><b>&nbsp&nbsp{{i.weight}}&nbsp&nbsp&nbsp</b></td></tr>
+
+
+
+{% endfor %}
+{% endif %}</b></h2>
+    </table>
+
+</center></h4>
+<br> <br>
+{% endblock %}

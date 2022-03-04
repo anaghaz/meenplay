@@ -1,0 +1,65 @@
+{% extends 'admin_header.html' %}
+
+{% block content %}
+
+
+<center>
+  <h3>Manage    Coach</h3></center>
+
+<div class="col-sm-11">
+     <a href="addm"><button type="submit" class="btn btn-link btn-sm btn-block text-left text-dark"><h4><u>Back To Home</u></h4></button></a>
+</div>
+<!--            <form action="midd" method="POST">-->
+<table border="2" align="center">
+
+    <tr>
+        <th><b>&nbsp&nbspName&nbsp&nbsp&nbsp</b></th>
+        <th><b>&nbsp&nbspSports&nbsp&nbsp&nbsp</b></th>
+        <th><b>&nbsp&nbspDOB&nbsp&nbsp&nbsp</b></th>
+        <th><b>&nbsp&nbspQualification&nbsp&nbsp&nbsp</b></th>
+        <th><b>&nbsp&nbspPlace&nbsp&nbsp&nbsp</b></th>
+        <th><b>&nbsp&nbspPhone&nbsp&nbsp&nbsp</b></th>
+        <th><b>&nbsp&nbspEmail&nbsp&nbsp&nbsp</b></th>
+        <th><b>&nbsp&nbspFee&nbsp&nbsp&nbsp</b></th>
+            <th><b>&nbsp&nbspcertificate&nbsp&nbsp&nbsp</b></th>
+        <th colspan="2"><b>&nbsp&nbsp&nbsp&nbsp&nbsp</b></th>
+
+    </tr>
+    <tr>
+         {% csrf_token %}
+                {% for i in user %}
+        <td><b>&nbsp&nbsp{{i.cname}}&nbsp&nbsp&nbsp</b></td>
+        <td><b>&nbsp&nbsp{{i.csports}}&nbsp&nbsp&nbsp</b></td>
+        <td><b>&nbsp&nbsp{{i.cdob}}&nbsp&nbsp&nbsp</b></td>
+        <td><b>&nbsp&nbsp{{i.cqualification}}&nbsp&nbsp&nbsp</b></td>
+        <td><b>&nbsp&nbsp{{i.cplace}}&nbsp&nbsp&nbsp</b></td>
+        <td><b>&nbsp&nbsp{{i.cphone}}&nbsp&nbsp&nbsp</b></td>
+        <td><b>&nbsp&nbsp{{i.cemail}}&nbsp&nbsp&nbsp</b></td>
+        <td><b>&nbsp&nbsp{{i.cfee}}&nbsp&nbsp&nbsp</b></td>
+         <td><img src="{{i.ccertificate.url}}" height="500px" width="500px"/></td>
+        <td><b><form action="admin_accept_coach" method="POST">
+                {% csrf_token %}
+             <input type="hidden" name="id" value="{{i.cid}}">
+                      <input type="submit" value="Accept">
+
+        </form></b></td>
+       <td> <b><form action="deletes" method="POST">
+                {% csrf_token %}
+
+                      <input type="hidden" name="id" value="{{i.cid}}">
+                      <input type="submit" value="Reject" id="i1" onclick="return confirm('Are you sure to reject?...')">
+
+        </form></b>
+        </td>
+    </tr>
+
+
+
+
+
+        {% endfor %}
+
+</table>
+</form>
+<br> <br>
+{% endblock %}

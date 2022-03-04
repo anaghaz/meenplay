@@ -1,0 +1,53 @@
+{% include 'user_header.html' %}
+<center>
+	<h1>Model Booking</h1>
+	<table>
+		<tr>
+			<th>Modelname</th>
+			<th>Amount</th>
+			<th>Date</th>
+			<th>Status</th>
+		</tr>
+		{% for row in data['book'] %}
+		<tr>
+			<td>{{ row['modelname'] }}</td>
+			<td>{{ row['amount'] }}</td>
+			<td>{{ row['date'] }}</td>
+			<td>{{ row['status'] }}</td>
+			{% if row['status']=="accept" %}
+				<td><a href="user_payment?booking_id={{ row['booking_id'] }}&total={{ row['amount'] }}">Payment</a></td>
+
+			{% endif %}
+			{% if row['status']=="paid" %}	
+				<td><a href="user_add_rating?booking_id={{ row['booking_id'] }}">Add rating</a></td>
+			{% endif %}	
+		</tr>
+		{% endfor %}
+	</table>
+	<h1>Model Booking</h1>
+	<table>
+		<tr>
+			<th>Shopname</th>
+			<th>Amount</th>
+			<th>Date</th>
+			<th>Status</th>
+		</tr>
+		{% for row in data['sbook'] %}
+		<tr>
+			<td>{{ row['shop_name'] }}</td>
+			<td>{{ row['total'] }}</td>
+			<td>{{ row['date'] }}</td>
+			<td>{{ row['status'] }}</td>
+			{% if row['status']=="accept" %}
+				<td><a href="user_makepayment?sbooking_id={{ row['sbooking_id'] }}&total={{ row['total'] }}">Payment</a></td>
+				<td><a href="user_chat?lid={{ row['login_id'] }}">Chat</a></td>
+			{% endif %}	
+			{% if row['status']=="paid" %}	
+				<td><a href="user_add_ratings?sbooking_id={{ row['sbooking_id'] }}">Add Rating</a></td>
+				<td><a href="user_chat?lids={{ row['login_id'] }}">Chat</a></td>
+			{% endif %}
+		</tr>
+		{% endfor %}
+	</table>
+</center>
+{% include 'footer.html' %}

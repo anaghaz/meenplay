@@ -1,0 +1,55 @@
+{% extends 'admin_header.html' %}
+
+{% block content %}
+<table>
+
+
+
+<center><h3>Payment View</h3></center>
+
+ <div class="col-sm-11">
+     <a href="addm"><button type="submit" class="btn btn-link btn-sm btn-block text-left text-dark"><h4><u>Back To Home</u></h4></button></a>
+</div>
+
+            <form action="gidd" method="POST">
+                 {% csrf_token %}
+ <center><h4>
+                <table border="2" align="center">
+
+
+    <tr>
+
+
+        <th><b>&nbsp&nbspPlayerid &nbsp&nbsp&nbsp</b></th>
+        <th><b>&nbsp&nbspGame&nbsp&nbsp&nbsp</b></th>
+        <th><b>&nbsp&nbspAmount&nbsp&nbsp&nbsp</b></th>
+        <th><b>&nbsp&nbspDate&nbsp&nbsp&nbsp</b></th>
+        <th><b>&nbsp&nbspTime&nbsp&nbsp&nbsp</b></th>
+
+
+
+    </tr>
+    <tr>
+       {% for i in user %}
+        <td><b>&nbsp&nbsp{{i.rid}}&nbsp&nbsp&nbsp</b></td>
+        <td><b>&nbsp&nbsp{{i.gameid}}&nbsp&nbsp&nbsp</b></td>
+        <td><b>&nbsp&nbsp{{i.pstatus}}&nbsp&nbsp&nbsp</b></td>
+        <td><b>&nbsp&nbsp{{i.pdate}}&nbsp&nbsp&nbsp</b></td>
+        <td><b>&nbsp&nbsp{{i.ptime}}&nbsp&nbsp&nbsp</b></td></h4></tr>
+
+
+
+
+
+
+
+
+
+        {% endfor %}
+
+</center>
+</table>
+</form>
+
+<br> <br>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'player_header.html' %}
+
+{% block content %}
+<form action="emgmsg" method="POST">
+    {% csrf_token %}
+<div class="jumbotron bg-dark text-center text-white">
+  <h2>Messege</h2>
+</div>
+    <div class="col-sm-11">
+     <a href="player"><button type="submit" class="btn btn-link btn-sm btn-block text-left text-dark"><h4><u>Back To Home</u></h4></button></a>
+</div>
+<center>
+<div class="form-group form-group-sm"> 
+
+        <div class="col-sm-11">
+
+            <table>
+              <tr>
+                  <th>coach</th>
+                  <td><input type="hidden" name="cch" value="{{ch}}"></h3></td>
+              </tr>
+            </table>
+
+        </div>
+
+   <div class="col-sm-11">
+     <input id="pname" type="text" class="form-control text-center my-1" name="pname" placeholder="Player Name"required>
+    </div>
+   <div class="col-sm-11">
+     <input id="msg" type="text" class="form-control text-center my-1 p-5" name="msg" placeholder="Type a messege"required>
+    </div>
+  
+ 
+</div>
+<div class="form-group form-group-sm">
+ <div class="col-sm-11">
+    <button type="submit" class="btn btn-dark btn-sm btn-block ">send</button>
+</div>
+</div>
+
+
+</center>
+</form>
+<br> <br>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'coach_header.html' %}
+
+{% block content %}
+
+<div class="jumbotron bg-dark text-center text-white">
+  <h3>Messages</h3>
+</div>
+    <div class="form-group form-group-sm">
+ <div class="col-sm-11">
+     <a href="coach"><button type="submit" class="btn btn-link btn-sm btn-block text-left text-dark"><h4><u>Back To Home</u></h4></button></a>
+</div>
+    </div>
+ <b><h2>
+ <table border="2" align="center">
+                 {% csrf_token %}
+
+
+    <tr>
+
+        <th><b>&nbsp&nbspName&nbsp&nbsp&nbsp</b></th>
+        <th><b>&nbsp&nbspMessages&nbsp&nbsp&nbsp</b></th>
+        <th><b>&nbsp&nbsp&nbsp&nbsp&nbsp</b></th>
+
+
+
+    </tr>
+    <tr>
+
+        {% for i in user %}
+        <td><b>&nbsp&nbsp{{i.mname}}&nbsp&nbsp&nbsp</b></td>
+        <td><b>&nbsp&nbsp{{i.msg}}&nbsp&nbsp&nbsp</b></td>
+        <td><b> <form action="deletes3" method="POST">
+               {% csrf_token %}
+
+                      <input type="hidden" name="id" value="{{i.mname}}">
+                      <input type="submit" value="delete">
+
+                 </form></b></td></tr>
+       {% endfor %}
+      </b></h2>
+
+</table>
+</center>
+<br> <br>
+{% endblock %}

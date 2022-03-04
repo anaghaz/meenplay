@@ -1,0 +1,27 @@
+{% include 'admin_header.html' %}
+<body>
+<center>
+	<table>
+		<tr>
+			<th>Shop Name</th>
+			<th>Place</th>
+			<th>Phone</th>
+			<th>Email</th>
+			<th>License Number</th>
+		</tr>
+		{% for row in data['shop'] %}
+		<tr>
+			<td>{{ row['shop_name'] }}</td>
+			<td>{{ row['place'] }}</td>
+			<td>{{ row['phone'] }}</td>
+			<td>{{ row['email'] }}</td>
+			<td>{{ row['licensenumber'] }}</td>
+			
+			<td><a href="?action=accept&login_id={{ row['login_id'] }}">Accept</a></td>
+			
+			<td><a href="?action=reject&login_id={{ row['login_id'] }}">Reject</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+</center>
+{% include 'footer.html' %}

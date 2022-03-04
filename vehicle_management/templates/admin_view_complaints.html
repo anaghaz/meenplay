@@ -1,0 +1,30 @@
+{% include 'admin_header.html' %}
+<center>
+	
+<form method="post">	
+	<table>
+		<tr>
+			
+			
+			<th>Username</th>
+			<th>Complaint</th>
+			<th>Reply</th>
+			<th>Date</th>
+			<th>Reply</th>
+		</tr>
+		{% for row in data['complaintsview'] %}
+		<tr>
+			
+			
+			<td>{{ row['firstname'] }}</td>
+			<td>{{ row['complaint'] }}</td>
+			<td>{{ row['reply'] }}</td>
+			<td>{{ row['date'] }}</td>
+			<td><input type="text" name="reply{{ loop.index }}"></td>
+			<td><input type="submit" name="submit{{ loop.index }}" value="send"></td>
+		</tr>
+		{% endfor %}
+	</table>
+</form>	
+</center>
+{% include 'footer.html' %}

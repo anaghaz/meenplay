@@ -1,0 +1,29 @@
+{% include 'user_header.html' %}
+<center>
+	<form method="post">
+	
+		<table>
+			<tr>
+				<th>Holder Name</th>
+				<td><input type="text" name="holder_name"></td>
+			</tr>
+			<tr>
+				<th>CVV</th>
+				<td><input type="text" name="cvv"></td>
+			</tr>
+			<tr>
+				<th>Expire date</th>
+				<td><input type="date" name="date"></td>
+			</tr>
+				<tr>
+					<th>Amount</th>
+					<td><input type="text" name="amount" value="{{ data['total'] }}" readonly></td>
+				</tr>
+				<tr>
+					<td align="center" colspan="2"><input type="submit" name="submit"></td>
+					</tr>	
+		</table>
+							
+		</form>
+	</center>
+{% include 'footer.html' %}

@@ -1,0 +1,44 @@
+{% include 'admin_header.html' %}
+<center>
+	<h1>Model Booking</h1>
+	<table>
+		<tr>
+			<th>Username</th>
+			<th>Modelname</th>
+			<th>Amount</th>
+			<th>Date</th>
+			<th>Status</th>
+		</tr>
+		{% for row in data['book'] %}
+		<tr>
+			<td>{{ row['firstname'] }}</td>
+			<td>{{ row['modelname'] }}</td>
+			<td>{{ row['amount'] }}</td>
+			<td>{{ row['date'] }}</td>
+			<td>{{ row['status'] }}</td>
+			<td><a href="admin_view_bookingusers?user_id={{ row['user_id'] }}">User details</a></td>
+		</tr>
+		{% endfor %}	
+	</table>
+	<h1>Spare Booking</h1>
+	<table>
+		<tr>
+			<th>Username</th>
+			<th>Shopname</th>
+			<th>Amount</th>
+			<th>Date</th>
+			<th>Status</th>
+		</tr>
+		{% for row in data['sbook'] %}
+		<tr>
+			<td>{{ row['firstname'] }}</td>
+			<td>{{ row['shop_name'] }}</td>
+			<td>{{ row['total'] }}</td>
+			<td>{{ row['date'] }}</td>
+			<td>{{ row['status'] }}</td>
+			<td><a href="admin_view_bookingusers?user_id={{ row['user_id'] }}">User details</a></td>
+		</tr>
+		{% endfor %}	
+	</table>
+</center>
+{% include 'footer.html' %}

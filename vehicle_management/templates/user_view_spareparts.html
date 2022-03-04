@@ -1,0 +1,27 @@
+{% include 'user_header.html' %}
+<center>
+	<table>
+		<tr>
+			
+			<th>Model name</th>
+			<th>Partname</th>
+			<th>Description</th>
+			<th>Price</th>
+			<th>Image</th>
+			
+		</tr>
+		{% for row in data['parts'] %}
+		<tr>
+			
+			<td>{{ row['modelname'] }}</td>
+			<td>{{ row['partname'] }}</td>
+			<td>{{ row['description'] }}</td>
+			<td>{{ row['price'] }}</td>
+			<td><img style="width:200px; height:200px" name="img" src="/{{ row['image'] }}"></td>
+			
+			<td><a href="user_book_parts?part_id={{ row['part_id'] }}&model_id={{ row['model_id'] }}&price={{ row['price'] }}&shop_id={{ row['shop_id'] }}">Book</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+</center>
+{% include 'footer.html' %}

@@ -1,0 +1,43 @@
+{% extends 'coach_header.html' %}
+
+{% block content %}
+<form action="playeramount" method="POST">
+    {% csrf_token %}
+<div class="jumbotron bg-dark text-center text-white">
+  <h2>Player Payments</h2>
+</div>
+ <div class="col-sm-11">
+     <a href="coach"><button type="submit" class="btn btn-link btn-sm btn-block text-left text-dark"><h4><u>Back To Home</u></h4></button></a>
+</div>
+<center>
+<div class="form-group form-group-sm">
+    <div class="col-sm-11">
+     <input id="player" type="text" class="form-control text-center my-1" name="playerid" placeholder="Player id"required>
+    </div>
+   <div class="col-sm-11">
+     <input id="game" type="text" class="form-control text-center my-1" name="game" placeholder="Enter Game here"required>
+    </div>
+ <div class="col-sm-11">
+     <input id="amount" type="text" class="form-control text-center my-1" name="amount" placeholder="amount"required>
+    </div>
+ <div class="col-sm-11">
+     <input id="date" type="date" class="form-control text-center my-1" name="date" placeholder="date"required>
+    </div>
+ <div class="col-sm-11">
+     <input id="time" type="time" class="form-control text-center my-1" name="time" placeholder="time"required>
+    </div>
+
+</div>
+<div class="form-group form-group-sm">
+ <div class="col-sm-11">
+    <button type="submit" class="btn btn-dark btn-sm btn-block ">submit</button>
+</div>
+
+</div>
+
+
+
+</center>
+</form>
+<br> <br>
+{% endblock %}

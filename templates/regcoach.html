@@ -1,0 +1,85 @@
+{% extends 'public_header.html' %}
+
+{% block content %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Team HTML</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat%7COpen+Sans:700,400%7CRaleway:400,800,900" rel="stylesheet" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <link href="dev-assets/preloader-default.css" rel="stylesheet" type="text/css" />
+    <link href="dev-assets/demo-switcher.css" rel="stylesheet" type="text/css" />
+
+<body>
+<form action="coachreg" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+     <br><p style="color:white" align="center">{{s}}</p><br>
+<div class="jumbotron bg-dark text-center text-white">
+  <h2>Register Here</h2>
+</div>
+
+<center>
+<center class="form-group form-group-sm" >
+
+    <div class="col-sm-11">
+     <input id="cid" type="text" class="form-control text-center my-1" name="coachid" placeholder="Enter id here"required>
+    </div>
+   <div class="col-sm-11">
+     <input id="uname" type="text" class="form-control text-center my-1" name="name" placeholder="Enter name here"required>
+    </div>
+   <div class="col-sm-11">
+
+     <select id="sports" type="select" class="selectpicker form-control form-control dropdown-toggle text-center my-1" name="sports" placeholder="Enter Sports here" data-toggle="dropdown">
+
+         <option  text-center data-hidden="true">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSelect sports</option>
+
+        <option >Cricket</option>
+        <option>Football</option>
+        <option>Tennis</option>
+         <option >Badminton</option>
+        <option>Golf</option>
+        <option>Hokey</option>
+    </select>
+   </div>
+   <div class="col-sm-11">
+     <input id="phone" type="text" class="form-control text-center my-1" name="phone" placeholder="phone"required>
+    </div>
+  <div class="col-sm-11">
+     <input id="place" type="text" class="form-control text-center my-1" name="place" placeholder="Place"required>
+    </div>
+  <div class="col-sm-11">
+     <input id="dob" type="date" class="form-control text-center my-1" name="dob" placeholder="Date Of Birth"required>
+    </div>
+ <div class="col-sm-11">
+     <input id="qualification" type="text" class="form-control text-center my-1" name="qualification" placeholder="Qualification"required>
+    </div>
+ <div class="col-sm-11">
+     <input id="fee" type="text" class="form-control text-center my-1" name="fee" placeholder="Fee"required>
+    </div>
+ <div class="col-sm-11">
+     <input id="image" type="file" class="form-control text-center my-1" name="image" placeholder="Certificate"required>
+    </div>
+ <div class="col-sm-11">
+     <input id="email" type="text" class="form-control text-center my-1" name="email" placeholder="Email"required>
+    </div>
+ <div class="col-sm-11">
+     <input id="password" type="password" class="form-control text-center my-1" name="password" placeholder="password"required>
+ </div>
+
+<div class="form-group form-group-sm">
+ <div class="col-sm-11">
+    <button type="submit" class="btn btn-dark btn-sm btn-block ">REGISTER</button>
+</div>
+    {{message}}
+</div>
+</center>
+</center>
+</form>
+<br> <br>
+{% endblock %}

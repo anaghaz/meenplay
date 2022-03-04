@@ -1,0 +1,35 @@
+{% include 'admin_header.html' %}
+<center>
+	<table>
+		<tr>
+			<th>Car name</th>
+			<th>Model name</th>
+			<th>variant</th>
+			<th>Plate number</th>
+			<th>Chasisno</th>
+			<th>color</th>
+			<th>Transmission</th>
+			<th>Mileage</th>
+			<th>Type</th>
+			<th>Rentalrate</th>
+			<th>Extrarate</th>
+		</tr>
+		{% for row in data['model'] %}
+		<tr>
+			<td>{{ row['car'] }}</td>
+			<td>{{ row['modelname'] }}</td>
+			<td>{{ row['variant'] }}</td>
+			<td>{{ row['plate_no'] }}</td>
+			<td>{{ row['chasisno'] }}</td>
+			<td>{{ row['color'] }}</td>
+			<td>{{ row['transmission'] }}</td>
+			<td>{{ row['mileage'] }}</td>
+			<td>{{ row['type'] }}</td>
+			<td>{{ row['rentalrate'] }}</td>
+			<td>{{ row['extrarate'] }}</td>
+			
+		</tr>
+		{% endfor %}
+	</table>
+</center>
+{% include 'footer.html' %}

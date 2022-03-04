@@ -1,0 +1,18 @@
+{% include 'user_header.html' %}
+<center>
+	<table>
+			<tr>
+				
+				<th>users</th>
+				
+			</tr>
+			{% for row in data['chat'] %}
+			<tr>
+				
+				<td>{{ row['shop_name'] }}</td>
+				<td><a href="user_chat?lids={{ row['login_id'] }}">Chat</a></td>
+			</tr>
+			{% endfor %}
+		</table>
+</center>
+{% include 'footer.html' %}

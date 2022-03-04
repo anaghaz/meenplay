@@ -1,0 +1,16 @@
+{% extends 'player_header.html' %}
+
+{% block content %}
+<div class="jumbotron bg-dark text-center text-white">
+  <h3>Videos</h3>
+</div>
+<div class="col-sm-11">
+     <a href="player"><button type="submit" class="btn btn-link btn-sm btn-block text-left text-dark"><h3>BACK TO HOME</h3></button></a>
+</div>
+{% if user %}
+{% for i in user %}
+<video src="{{i.videos.url}}" width="500" height="200"   controls></video>
+{% endfor %}
+{% endif %}
+<br> <br>
+{% endblock %}

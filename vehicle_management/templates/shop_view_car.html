@@ -1,0 +1,17 @@
+{% include 'shop_header.html' %}
+<center>
+	<table>
+		<tr>
+			<th>Car Name</th>
+			<th>Brand Name</th>
+		</tr>
+		{% for row in data['car'] %}
+		<tr>
+			<td>{{ row['car'] }}</td>
+			<td>{{ row['brandname'] }}</td>
+			<td><a href="shop_add_model?car_id={{ row['car_id'] }}">Add Model/Parts</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+</center>
+{% include 'footer.html' %}

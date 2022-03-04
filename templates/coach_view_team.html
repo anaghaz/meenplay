@@ -1,0 +1,31 @@
+{% extends 'coach_header.html' %}
+
+{% block content %}
+
+
+<div class="jumbotron bg-dark text-center text-white">
+  <h3>TEAM</h3>
+</div>
+<div class="col-sm-11">
+     <a href="coach"><button type="submit" class="btn btn-link btn-sm btn-block text-left text-dark"><h4><u>Back To Home</u></h4></button></a>
+</div>
+    <table>
+        <form action="coach_add_time" method="post">
+            {% csrf_token %}
+        <tr>
+            <th>Team Name</th>
+            <th>Players</th>
+        </tr>
+        {% for i in tm %}
+        <tr>
+            <td>{{i.team_name}}</td>
+            <td>{{i.players}}</td>
+            <td><input type="submit" class="btn btn-info" name="submit" value="Set Time"></td>
+        </tr>
+        {% endfor %}
+        </form>
+    </table>
+
+</form>
+<br> <br>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% include 'shop_header.html' %}
+<center>
+	<table>
+		<tr>
+			<th>Modelname</th>
+			<th>Amount</th>
+			<th>Date</th>
+		</tr>
+		{% for row in data['pay'] %}
+		<tr>
+			<td>{{ row['modelname'] }}</td>
+			<td>{{ row['amount'] }}</td>
+			<td>{{ row['date'] }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+</center>
+{% include 'footer.html' %}

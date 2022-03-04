@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
+    body{
+        background-image: url("https://www.hdwallpaper.nu/wp-content/uploads/2017/03/grey-1.jpg");
+	height: 500%;
+	background-repeat: no-repeat;
+	background-size: cover;
+        }
+</style>
+</head>
+<body>
+ {% if user %}
+    {% for i in user %}
+<form action="gupdate" method="POST">
+    {% csrf_token %}
+
+<div class="jumbotron bg-dark text-center text-white">
+  <h2>Update Game</h2>
+</div>
+<div class="col-sm-11">
+     <a href="updategame"><button type="submit" class="btn btn-link btn-sm btn-block text-left text-dark"><h4><u>Back To Home</u></h4></button></a>
+</div>
+<center>
+   <div class="col-sm-11">
+     <input id="gid" type="text" class="form-control text-center my-1" name="id" value="{{i.gid}}"placeholder="Enter id here" readonly>
+    </div>
+
+   <div class="col-sm-11">
+     <input id="sports" type="text" class="form-control text-center my-1" name="sports" value="{{i.games}}"placeholder="Enter Sports here"required>
+    </div>
+   <div class="col-sm-11">
+     <input id="nplayers" type="text" class="form-control text-center my-1" name="nplayers"value="{{i.nofplayers}}" placeholder="Number of Players"required>
+    </div>
+  <div class="col-sm-11">
+     <input id="duration" type="text" class="form-control text-center my-1" name="duration" value="{{i.duration}}"placeholder="Duration"required>
+    </div>
+  <div class="col-sm-11">
+     <input id="description" type="text" class="form-control text-center my-1" name="description"value="{{i.gdescription}}" placeholder="Description"required>
+    </div>
+ <div class="col-sm-11">
+     <input id="amount" type="text" class="form-control text-center my-1" name="amount"value="{{i.amount}}" placeholder="Amount"required>
+    </div>
+
+</div>
+<div class="form-group form-group-sm">
+ <div class="col-sm-11">
+    <button type="submit" class="btn btn-dark btn-sm btn-block ">Save</button>
+</div>
+</div>
+{% endfor %}
+    {% endif %}
+
+</center>
+</form>
+</body>
+</html>

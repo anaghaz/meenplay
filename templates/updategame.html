@@ -1,0 +1,67 @@
+{% extends 'coach_header.html' %}
+
+{% block content %}
+
+
+<div class="jumbotron bg-dark text-center text-white">
+  <h3>Game Update</h3>
+</div>
+    <div class="col-sm-11">
+     <a href="coach"><button type="submit" class="btn btn-link btn-sm btn-block text-left text-dark"><h4><u>Back To Home</u></h4></button></a>
+</div>
+    <h4>
+            <form action="gidd" method="POST">
+<table border="2" align="center">
+                 {% csrf_token %}
+
+    <tr>
+
+        <th><b>&nbsp&nbspSports&nbsp&nbsp&nbsp</b></th>
+        <th><b>&nbsp&nbspTotal Players&nbsp&nbsp&nbsp</b></th>
+        <th><b>&nbsp&nbspDuration&nbsp&nbsp&nbsp</b></th>
+        <th><b>&nbsp&nbspDescription&nbsp&nbsp&nbsp</b></th>
+        <th><b>&nbsp&nbspAmount&nbsp&nbsp&nbsp</b></th>
+         <th colspan="2"><b>&nbsp&nbsp&nbsp&nbsp&nbsp</b></th>
+
+
+    </tr>
+    <tr>
+        {% for i in user %}
+        <td><b>&nbsp&nbsp{{i.games}}&nbsp&nbsp&nbsp</b></td>
+        <td><b>&nbsp&nbsp{{i.nofplayers}}&nbsp&nbsp&nbsp</b></td>
+        <td><b>&nbsp&nbsp{{i.duration}}&nbsp&nbsp&nbsp</b></td>
+        <td><b>&nbsp&nbsp{{i.gdescription}}&nbsp&nbsp&nbsp</b></td>
+        <td><b>&nbsp&nbsp{{i.amount}}&nbsp&nbsp&nbsp</b></td>
+        <td><b><form action="gidd" method="POST">
+                {% csrf_token %}
+
+                      <input type="hidden" name="id" value="{{i.gid}}">
+                      <input type="submit" value="Update">
+
+                 </form></b></td>
+
+        <td><b> <form action="deletes2" method="POST">
+               {% csrf_token %}
+
+                      <input type="hidden" name="id" value="{{i.gid}}">
+                      <input type="submit" value="delete">
+
+        </form></h4>
+</b></td> </tr>
+
+
+
+
+
+
+
+
+
+        {% endfor %}
+
+
+</table>
+
+</form>
+<br> <br>
+{% endblock %}

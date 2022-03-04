@@ -1,0 +1,24 @@
+{% include 'user_header.html' %}
+<center>
+	<table>
+		<tr>
+			
+			
+			<th>Notification</th>
+			<th>Description</th>
+			<th>Date</th>
+			
+		</tr>
+		{% for row in data['noti'] %}
+		<tr>
+			
+			
+			<td>{{ row['notification'] }}</td>
+			<td>{{ row['description'] }}</td>
+			<td>{{ row['date'] }}</td>
+			
+		</tr>
+		{% endfor %}
+	</table>
+</center>
+{% include 'footer.html' %}

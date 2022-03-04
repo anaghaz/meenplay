@@ -1,0 +1,39 @@
+{% extends 'admin_header.html' %}
+
+{% block content %}
+<div class="jumbotron bg-dark text-center text-white">
+  <h3>Reports</h3>
+</div>
+<div class="col-sm-11">
+     <a href="addm"><button type="submit" class="btn btn-link btn-sm btn-block text-left text-dark"><h4><u>Back To Home</u></h4></button></a>
+</div>
+<center><h4>
+
+    <table border="2" align="center">
+                 {% csrf_token %}
+
+    <tr>
+
+
+        <th><b>&nbsp&nbspPlayerid &nbsp&nbsp&nbsp</b></th>
+
+        <th><b>&nbsp&nbspReport&nbsp&nbsp&nbsp</b></th>
+
+
+
+
+    </tr>
+    <tr>
+       {% if user %}
+{% for i in user %}
+        <td><b>&nbsp&nbsp{{i.playerid}}&nbsp&nbsp&nbsp</b></td>
+
+         <td><b>&nbsp&nbsp{{i.preport}}&nbsp&nbsp&nbsp</b></td></tr>
+
+
+{% endfor %}
+{% endif %}</b></h4>
+    </table>
+</center>
+<br> <br>
+{% endblock %}

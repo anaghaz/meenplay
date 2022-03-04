@@ -1,0 +1,18 @@
+{% include 'user_header.html' %}
+<center>
+	<table>
+		<tr>
+			<th>Complaint</th>
+			<th>Reply</th>
+			<th>Date</th>
+		</tr>
+		{% for row in data['reply'] %}
+		<tr>
+			<td>{{ row['complaint'] }}</td>
+			<td>{{ row['reply'] }}</td>
+			<td>{{ row['date_time'] }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+</center>
+{% include 'footer.html' %}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Team HTML</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat%7COpen+Sans:700,400%7CRaleway:400,800,900" rel="stylesheet" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="{% static 'css/library/bootstrap.css" rel="stylesheet" type="text/css' %}" />
+    <link href="dev-assets/preloader-default.css" rel="stylesheet" type="text/css" />
+    <link href="dev-assets/demo-switcher.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+<form action="venueadd" method="POST">
+    {% csrf_token %}
+<div class="jumbotron bg-dark text-center text-white">
+  <h2>Add Venue</h2>
+</div>
+
+<center>
+<div class="form-group form-group-sm"> 
+   
+  <div class="col-sm-11">
+     <input id="place" type="text" class="form-control text-center my-1" name="place" placeholder="Place"required>
+    </div>
+  <div class="col-sm-11">
+     <input id="description" type="text" class="form-control text-center my-1" name="description" placeholder="Description"required>
+    </div>
+ <div class="col-sm-11">
+     <input id="date" type="date" class="form-control text-center my-1" name="date" placeholder="Date"required>
+    </div>
+ <div class="col-sm-11">
+     <input id="time" type="time" class="form-control text-center my-1" name="time" placeholder="Time"required>
+    </div>
+
+</div>
+<div class="form-group form-group-sm">
+ <div class="col-sm-11">
+    <button type="submit" class="btn btn-dark btn-sm btn-block ">Add</button>
+</div>
+</div>
+
+  </form>
+</form>
+</center>
+</body>
+</html>

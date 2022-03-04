@@ -1,0 +1,30 @@
+{% include 'shop_header.html' %}
+<center>
+	<h1>Spareparts</h1>
+	<table>
+		<tr>
+			<th>Username</th>
+			<th>shopname</th>
+			<th>Amount</th>
+			<th>Date</th>
+			<th>Status</th>
+		</tr>
+		{% for row in data['sbook'] %}
+		<tr>
+			<td>{{ row['firstname'] }}</td>
+			<td>{{ row['shop_name'] }}</td>
+			<td>{{ row['total'] }}</td>
+			<td>{{ row['date'] }}</td>
+			<td>{{ row['status'] }}</td>
+			{% if row['status'] == "pending" %}
+				<td><a href="?action=accept1&sbooking_id={{ row['sbooking_id'] }}">Accept</a></td>
+				<td><a href="?action=reject1&sbooking_id={{ row['sbooking_id'] }}">Reject</a></td>
+			{% endif %}
+			{% if row['status'] == "paid" %}
+				<td><a href="shop_view_parts_payment?sbooking_id={{ row['sbooking_id'] }}&user_id={{ row['user_id'] }}">Payment</a></td>
+			{% endif %}		
+		</tr>
+		{% endfor %}
+	</table>
+</center>
+{% include 'footer.html' %}

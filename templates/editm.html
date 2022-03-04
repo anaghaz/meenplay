@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+ <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
+    body{
+        background-image: url("https://www.hdwallpaper.nu/wp-content/uploads/2017/03/grey-1.jpg");
+	height: 500%;
+	background-repeat: no-repeat;
+	background-size: cover;
+        }
+</style>
+</head>
+<body>
+        {% if user %}
+        {% for i in user %}
+<form action="editm" method="POST">
+    {% csrf_token %}
+<div class="jumbotron bg-dark text-center text-white">
+  <h2>Edit Coach</h2>
+</div>
+ <div class="col-sm-11">
+     <a href="updatetime"><button type="submit" class="btn btn-link btn-sm btn-block text-left text-dark"><h4><u>Back To Home</u></h4></button></a>
+</div>
+<center>
+<div class="form-group form-group-sm">
+    <div class="col-sm-11">
+     <input id="cid" type="text" class="form-control text-center my-1" name="coachid" value="{{i.cid}}"placeholder="Enter id here" readonly>
+    </div>
+
+   <div class="col-sm-11">
+     <input id="uname" type="text" class="form-control text-center my-1" name="name" value="{{i.cname}}" placeholder="Enter name here">
+    </div>
+   <div class="col-sm-11">
+     <input id="sports" type="text" class="form-control text-center my-1" name="sports"value="{{i.csports}}" placeholder="Enter Sports here">
+    </div>
+   <div class="col-sm-11">
+     <input id="phone" type="text" class="form-control text-center my-1" name="phone"value="{{i.cphone}}" placeholder="phone">
+    </div>
+  <div class="col-sm-11">
+     <input id="place" type="text" class="form-control text-center my-1" name="place"value="{{i.cplace}}" placeholder="Place">
+    </div>
+  <div class="col-sm-11">
+     <input id="dob" type="text" class="form-control text-center my-1" name="dob"value="{{i.cdob}}" placeholder="Date Of Birth"readonly>
+    </div>
+ <div class="col-sm-11">
+     <input id="qualification" type="text" class="form-control text-center my-1" name="qualification"value="{{i.cqualification}}" placeholder="Qualification">
+    </div>
+ <div class="col-sm-11">
+     <input id="fee" type="text" class="form-control text-center my-1" name="fee"value="{{i.cfee}}" placeholder="Fee">
+    </div>
+ <div class="col-sm-11">
+     <input id="email" type="text" class="form-control text-center my-1" name="email"value="{{i.cemail}}" placeholder="Email">
+    </div>
+
+</div>
+<div class="form-group form-group-sm">
+ <div class="col-sm-11">
+    <button type="submit" class="btn btn-dark btn-sm btn-block ">Save</button>
+</div>
+
+</div>
+{% endfor %}
+    {% endif %}
+
+
+</center>
+    </form>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<center>
+	<script type="text/javascript">
+		function TestOnTextChange(){
+
+			var a= document.getElementById("amount").value;
+			var b= document.getElementById("nopn").value;
+								 		
+			var s=parseInt(a)*parseInt(b)
+			alert(s);
+			document.getElementById("total").value=s;
+								 		
+								 		
+			}
+	</script>
+	
+		<form method="post">
+			<table>
+				<tr>
+					<th>Quantity</th>
+					<td><input type="text" onchange="TestOnTextChange()" id="nopn" name="quantity"></td>
+				</tr>
+				<tr>
+					<th>Amount</th>
+					<td><input type="text" name="amount" id="amount" value="{{ data['price'] }}"></td>
+				</tr>
+				<tr>
+					<th>Total Amount</th>
+					<td><input type="text" name="total_amount" id="total"></td>
+				</tr>
+				<tr>		
+					<td align="center" colspan="2"><input type="submit" name="submit" value="Order"></td>
+				</tr>
+			</table>
+		</form>
+	
+</body>
+</html>

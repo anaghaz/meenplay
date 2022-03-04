@@ -1,0 +1,17 @@
+{% extends 'admin_header.html' %}
+
+{% block content %}
+<div class="jumbotron bg-dark text-center text-white">
+
+  <h3>Search Here</h3>
+</div>
+<form action="search" method="POST">
+    {% csrf_token %}
+    <div class="col-sm-11">
+     <a href="addm"><button type="submit" class="btn btn-link btn-sm btn-block text-left text-dark"><h4><u>Back To Home</u></h4></button></a>
+</div>
+<center><input type="text"name="name" placeholder="search..">
+   <button type="submit" name="sub" class="btn btn-dark btn-sm">search</button></center>
+</form>
+<br> <br>
+{% endblock %}

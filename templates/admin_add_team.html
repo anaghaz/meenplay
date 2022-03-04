@@ -1,0 +1,44 @@
+{% extends 'admin_header.html' %}
+
+{% block content %}
+
+
+  <center><h3>Manage  Team</h3></center>
+
+<div class="col-sm-11">
+     <a href="addm"><button type="submit" class="btn btn-link btn-sm btn-block text-left text-white"><h4><u>Back To Home</u></h4></button></a>
+</div>
+<!--            <form action="midd" method="POST">-->
+<form action="add_team" method="post">
+    <div class="form-group form-group-sm">
+    {% csrf_token %}
+<table border="2" align="center" class="table">
+    <tr>
+        <th>Team name</th>
+        <td><input type="text" name="tname"></td>
+    </tr>
+    <tr>
+        <th>Coach</th>
+        <td><select name="coach" class="btn btn-primary dropdown-toggle">
+            {% for row in ch %}
+            <option name="cid">{{row.cname}}</option>
+            {% endfor %}
+        </select></td>
+    </tr>
+    <tr>
+        <th>Player</th>
+        <td><select name="player" multiple="10" class="btn btn-primary dropdown-toggle">
+            {% for i in pl %}
+            <option name="rid">{{i.rname}}</option>
+            {% endfor %}
+        </select></td>
+    </tr>
+    <tr>
+        <td align="center" colspan="3"><input type="submit" value="Add" class="btn btn-success"></td>
+    </tr>
+</table>
+</div>
+</form>
+
+<br> <br>
+{% endblock %}
